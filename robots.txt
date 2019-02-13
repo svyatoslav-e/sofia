@@ -1,0 +1,78 @@
+# moved to the site root at e.g. www.example.com/robots.txt
+# AND the joomla folder name MUST be prefixed to the disallowed
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/orig.html
+#
+# For syntax checking, see:
+# http://www.sxw.org.uk/computing/robots/check.html
+
+User-agent: *
+Disallow: /*route=account/
+Disallow: /*route=affiliate/
+Disallow: /*route=checkout/
+Disallow: /*route=product/search
+Disallow: /index.php?route=product/product*&manufacturer_id=
+Disallow: /admin
+Disallow: /catalog
+Disallow: /download
+Disallow: /export
+Disallow: /system
+Disallow: /*?sort=
+Disallow: /*&sort=
+Disallow: /*?order=
+Disallow: /*&order=
+Disallow: /*?limit=
+Disallow: /*&limit=
+Disallow: /*?filter_name=
+Disallow: /*&filter_name=
+Disallow: /*?filter_sub_category=
+Disallow: /*&filter_sub_category=
+Disallow: /*?filter_description=
+Disallow: /*&filter_description=
+Disallow: /*?tracking=
+Disallow: /*&tracking=
+Disallow: /*?page=
+Disallow: /*&page=
+Disallow: /wishlist
+Disallow: /login
+Disallow: /index.php?route=product/manufacturer
+Disallow: /index.php?route=product/compare
+Disallow: /index.php?route=product/category
+Crawl-delay: 10
+Sitemap: http://sofiashelest.com/index.php?route=feed/google_sitemap
+
+
+User-agent: Yandex
+Disallow: /*route=account/
+Disallow: /*route=affiliate/
+Disallow: /*route=checkout/
+Disallow: /*route=product/search
+Disallow: /index.php?route=product/product*&manufacturer_id=
+Disallow: /admin
+Disallow: /catalog
+Disallow: /download
+Disallow: /export
+Disallow: /system
+Disallow: /*?sort=
+Disallow: /*&sort=
+Disallow: /*?order=
+Disallow: /*&order=
+Disallow: /*?limit=
+Disallow: /*&limit=
+Disallow: /*?tracking=
+Disallow: /*&tracking=
+Disallow: /*route=product/search
+Disallow: /*?page=
+Disallow: /*&page=
+Clean-param: tracking
+Clean-param: filter_name
+Clean-param: filter_sub_category
+Clean-param: filter_description
+Disallow: /wishlist
+Disallow: /login
+Disallow: /index.php?route=product/manufacturer
+Disallow: /index.php?route=product/compare
+Disallow: /index.php?route=product/category
+Crawl-delay: 10
+
+Host:http://http://sofiashelest.com//

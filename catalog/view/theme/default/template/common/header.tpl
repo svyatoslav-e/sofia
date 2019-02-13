@@ -91,401 +91,281 @@
 </head>
 <body class="<?php echo $class; ?>" id="<?php echo $GLOBALS['customer_location']; ?>">
 <header>
-
     <div class="container-fluid">
-        <div class="row">
-
-            <div class="clearfix">
-                <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 header-row" id="header-row">
-
-                    <div id="logo" itemscope itemtype="http://schema.org/Organization">
-                        <?php if ($logo) { ?>
-                        <a itemprop="url" href="<?php echo $home; ?>"><img itemprop="logo" src="<?php echo $logo; ?>"
-                                                                           title="<?php echo $name; ?>"
-                                                                           alt="<?php echo $name; ?>"
-                                                                           class="img-responsive"
-                                                                           style="margin: 0 auto;"/></a>
-                        <?php } else { ?>
-                        <h1><a href="<?php echo $home; ?>"><span itemprop="name"><?php echo $name; ?></span></a></h1>
+            <div class="row">
+                <div class="clearfix">
+                    <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 header-row" id="header-row">
+                        <div id="logo" itemscope itemtype="http://schema.org/Organization">
+                            <?php if ($logo) { ?>
+                                <a itemprop="url" href="<?php echo $home; ?>">
+                                    <img itemprop="logo" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" style="margin: 0 auto;"/>
+                                </a>
+                            <?php } else { ?>
+                                <h1><a href="<?php echo $home; ?>"><span itemprop="name"><?php echo $name; ?></span></a></h1>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- search -->
+                    <?php if($GLOBALS["customer_location"]==='UA'){ ?>
+                      <div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-1 col-xs-6 col-xxs-12 search-block-ua"><?php echo $search; ?></div>
+                    <?php } else { ?>
+                      <div class="col-lg-2 col-lg-offset-5 col-md-3 col-md-offset-4 col-xs-6 col-xxs-12 search-block"><?php echo $search; ?></div>
+                    <?php } ?>
+                    <!-- mobile -->
+                    <div class="mobile col-xs-6 col-xxs-12">
+                        <?php if($GLOBALS["customer_location"]==='UA'){ ?>
+                            <div class="col-xs-4 mobi"><?php echo $language; ?></div>
+                            <div class="col-xs-6 mobi"><?php echo $cart; ?></div>
+                            <div class="mob-registration col-xs-2">
+                                <button class="dropdown mob-logo">
+                                    <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <?php if ($logged) { ?>
+                                            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+                                            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
+                                            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
+                                            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
+                                            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                                        <?php } else { ?>
+                                            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+                                            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </button>
+                            </div>
+                        <?php }  else { ?>
+                            <div class="col-xs-6 mobi">
+                                <?php echo $language; ?>
+                            </div>
+                            <div class="mob-registration col-xs-6">
+                                <button class="dropdown mob-logo">
+                                    <a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user"></i>
+                                        <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <?php if ($logged) { ?>
+                                            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+                                            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
+                                            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
+                                            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                                        <?php } else { ?>
+                                            <li><a href="<?php echo $link_to_wholesale ?>"><?php echo $text_register; ?></a></li>
+                                            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </button>
+                            </div>
                         <?php } ?>
                     </div>
-                </div>
-                <!-- search -->
-                <?if($GLOBALS["customer_location"]==='UA'){?>
-                <div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-1 col-xs-6 col-xxs-12 search-block-ua"><?php echo $search; ?></div>
-                <?}?>
-                <?if($GLOBALS["customer_location"]!=='UA'){?>
-                <div class="col-lg-2 col-lg-offset-5 col-md-3 col-md-offset-4 col-xs-6 col-xxs-12 search-block"><?php echo $search; ?></div>
-                <?}?>
 
-                <!-- mobile -->
-
-                <div class="mobile col-xs-6 col-xxs-12">
-
-                    <?if($GLOBALS["customer_location"]==='UA'){?>
-
-                    <div class="col-xs-4 mobi">
-                    <?php echo $language; ?>
-                    </div>
-
-
-
-                    <div class="col-xs-6 mobi">
-                    <?php echo $cart; ?>
-                    </div>
-
-
-
-                    <div class="mob-registration col-xs-2">
-
-                    <button class="dropdown mob-logo"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                    <?php if ($logged) { ?>
-                    <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-
-                    <?if($GLOBALS["customer_location"]==='UA'){?>
-                    <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                    <?}?>
-
-                    <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                    <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-                    <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-                    <?php } else { ?>
-
-                    <?if($GLOBALS["customer_location"]==='UA'){?>
-
-                    <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-                    <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-
-                    <?php } else { ?>
-
-                    <li><a href="<?php echo $link_to_wholesale ?>"><?php echo $text_register; ?></a></li>
-                    <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-                    <?php } ?>
-                    <?php } ?>
-                    </ul>
-                    </button>
-
-                </div>
-                <?php }  else { ?>
-
-                <div class="col-xs-6 mobi">
-                    <?php echo $language; ?>
-                </div>
-
-
-                <div class="mob-registration col-xs-6">
-
-                    <button class="dropdown mob-logo"><a href="<?php echo $account; ?>"
-                                                         title="<?php echo $text_account; ?>" class="dropdown-toggle"
-                                                         data-toggle="dropdown"><i class="fa fa-user"></i> <span
-                                    class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span
-                                    class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <?php if ($logged) { ?>
-                            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-
-                            <?if($GLOBALS["customer_location"]==='UA'){?>
-                            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                            <?}?>
-
-                            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-                            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-                            <?php } else { ?>
-
-                            <?if($GLOBALS["customer_location"]==='UA'){?>
-
-                            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-                            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-
-                            <?php } else { ?>
-
-                            <li><a href="<?php echo $link_to_wholesale ?>"><?php echo $text_register; ?></a></li>
-                            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-                            <?php } ?>
-                            <?php } ?>
-                        </ul>
-                    </button>
-
-                </div>
-
-
-                <?}?>
-
-            </div>
-
-            <div class="col-xs-12 mobi mobile">
-                <nav id="menu" class="navbar">
-                    <div class="navbar-header"><span id="category"
-                                                     class="visible-xs"><?php echo $text_information; ?></span>
-                        <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-                    </div>
-                    <!-- button -->
-                    <div class="collapse navbar-collapse navbar-ex1-collapse col-xs-12 m-inform">
-                        <ul class="list-unstyled">
-
-
-                            <?if($GLOBALS["customer_location"]==='UA'){?>
-
-                            <li><a href="<?php echo $link_to_anabout ?>"><?php echo $text_about; ?></a></li>
-                            <li><a href="<?php echo $link_to_order; ?>"><?php echo $text_howtotorder; ?></a></li>
-                            <li><a href="<?php echo $link_to_payment; ?>"><?php echo $text_delivery; ?></a></li>
-                            <li><a href="<?php echo $link_to_wholesale_ukr; ?>"><?php echo $text_wholesale; ?></a></li>
-                            <?} else {?>
-                            <li><a href="<?php echo $link_to_anabout_rus ?>"><?php echo $text_about; ?></a></li>
-                            <li><a href="<?php echo $link_to_payment_rus; ?>"><?php echo $text_delivery; ?></a></li>
-                            <li><a href="<?php echo $link_to_wholesale; ?>"><?php echo $text_howtotorder; ?></a></li>
-
-                            <?}?>
-                            <!-- module  reviews-->
-                            <li><a href="<?php echo $link_to_rewiews; ?>"><?php echo $text_reviews; ?></a></li>
-                            <!-- module  reviews-->
-                            <li><a href="<?php echo $contact; ?>" class="last"><?php echo $text_contact; ?></a></li>
-
-                        </ul>
-
-                    </div>
-                </nav>
-            </div>
-
-
-            <!-- end mobile -->
-
-
-            <?php if($GLOBALS["customer_location"]==='UA'){ ?>
-
-            <?php $small_text = ' ';?>
-            <?php $change_class = 'col-md-6'; ?>
-            <?php $change_class_top = 'col-xs-4'; ?>
-
-            <?php }  else { ?>
-
-            <?php $small_text = 'small-text'; ?>
-            <?php $change_class = 'col-xs-8 col-md-12'; ?>
-            <?php $change_class_top = 'col-xs-3 col-md-2 pull-right'; ?>
-            <?php } ?>
-
-            <div class="test <?php echo $change_class_top; ?> margin_large">
-                <?php if($GLOBALS["customer_location"]==='UA'){ ?>
-                <div class="col-md-6 padding-large" style="padding: 0 0;"><?php echo $cart; ?></div>
-                <?php } ?>
-                <!-- currency+language+log -->
-                <div class="<?php echo $change_class; ?> pull-right no-padding">
-                    <div class="registration row pull-right">
-                        <ul class="registration-menu <?php echo $small_text; ?> col-sm-12 no-padding">
-                            <?php if ($logged) { ?>
-
-                            <li><span class="man"></span><a
-                                        href="<?php echo $account; ?>"><?php echo $text_logged; ?></a></li>
-                            <!-- <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li> -->
-                            <li><span class="exit"></span><a
-                                        href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-                            <?php } else { ?>
-                                <?php if($GLOBALS["customer_location"]==='UA'){ ?>
-                                    <li><span class="key"></span><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-                                    <li><span class="lock"></span><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-                                <?php }  else { ?>
-                                    <li><span class="key"></span><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
-                                    </li>
-                                    <li><span class="lock"></span><a
-                                                href="<?php echo $link_to_wholesale ?>"><?php echo $text_register; ?></a></li>
-                                <?php } ?>
-                            <?php } ?>
-                        </ul>
-                    </div>
-
-                    <div class="lang-block  col-lg-8 pull-right"><?php echo $language; ?></div>
-                    <!--  <div class="cur-block col-md-12"><?php echo $currency; ?></div> -->
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div class="button_mail" data-toggle="modal" data-target=".bs-example-modal-lg">
-        <div class="button_wrap">
-            <div><?php echo $text_question; ?></div>
-        </div>
-    </div>
-
-
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg">
-
-
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <!--      <h4 class="modal-title">Modal Header</h4> -->
-                </div>
-
-                <div class="modal-body">
-                    <?php if($GLOBALS["customer_location"]==='UA') { ?>
-                    <!-- Nav tabs -->
-                    <ul class="form_link_nav nav-tabs col-xs-12" role="tablist">
-
-                        <li role="presentation" class="active col-xs-6">
-                            <a href="#rozn" aria-controls="rozn" role="tab"
-                                                                           data-toggle="tab"
-                                                                           class="form_link"><?=$text_comment2; ?></a>
-                        </li>
-                        <li role="presentation" class="col-xs-6">
-                            <a href="#opt" aria-controls="opt" role="tab"
-                                                                    data-toggle="tab"
-                                                                    class="form_link"><?=$text_comment; ?></a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="rozn">
-                            <div class="col-xs-12">
-                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal"
-                                      id="form_one" novalidate="novalidate">
-                                    <fieldset>
-                                        <legend><b><?php echo $text_contact; ?></b></legend>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-name"><?php echo $entry_name; ?></label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="name" value="<?php echo $name; ?>"
-                                                       id="input-name" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-email"><?php echo $entry_email; ?></label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="email" value="<?php echo $email; ?>"
-                                                       id="input-email" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-enquiry"><?php echo $entry_enquiry; ?></label>
-                                            <div class="col-sm-10">
-                                                <textarea name="enquiry" rows="10" id="input-enquiry"
-                                                          class="form-control"><?php echo $enquiry; ?></textarea>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <div class="buttons">
-                                        <div class="pull-right col-xs-12 col-sm-6">
-                                            <input class="hidden" type="submit" value="<?php echo $button_submit; ?>"
-                                                   id="send_sms"/>
-                                            <label class="btn-checkout"
-                                                   for="send_sms"><?php echo $text_sendsms; ?></label>
-                                        </div>
-                                    </div>
-                                </form>
+                    <div class="col-xs-12 mobi mobile">
+                        <nav id="menu" class="navbar">
+                            <div class="navbar-header">
+                                <span id="category" class="visible-xs"><?php echo $text_information; ?></span>
+                                <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
                             </div>
-                        </div>
-
-                        <div role="tabpanel" class="tab-pane" id="opt">
-                            <div class="col-xs-12">
-
-                                <form action="" method="post" class="form-horizontal" id="form_two">
-
-                                    <fieldset>
-                                        <legend><b><?php echo $text_contact; ?></b></legend>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-name2"><?php echo $entry_name; ?></label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="name2" value="<?php echo $name; ?>"
-                                                       id="input-name2" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-email2"><?php echo $entry_email; ?></label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="email2" value="<?php echo $email; ?>"
-                                                       id="input-email2" class="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label"
-                                                   for="input-enquiry2"><?php echo $entry_enquiry; ?></label>
-                                            <div class="col-sm-10">
-                                                <textarea name="enquiry2" rows="10" id="input-enquiry2"
-                                                          class="form-control"><?php echo $enquiry; ?></textarea>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <div class="buttons">
-                                        <div class="pull-right col-xs-12 col-sm-6">
-
-                                            <input class="hidden" type="submit" value="<?php echo $button_submit; ?>"
-                                                   id="send_sms2"/>
-
-                                            <label class="btn-checkout"
-                                                   for="send_sms2"><?php echo $text_sendsms; ?></label>
-                                        </div>
-                                    </div>
-                                </form>
+                            <!-- button -->
+                            <div class="collapse navbar-collapse navbar-ex1-collapse col-xs-12 m-inform">
+                                <ul class="list-unstyled">
+                                    <?php if($GLOBALS["customer_location"]==='UA'){ ?>
+                                        <li><a href="<?php echo $link_to_anabout ?>"><?php echo $text_about; ?></a></li>
+                                        <li><a href="<?php echo $link_to_order; ?>"><?php echo $text_howtotorder; ?></a></li>
+                                        <li><a href="<?php echo $link_to_payment; ?>"><?php echo $text_delivery; ?></a></li>
+                                        <li><a href="<?php echo $link_to_wholesale_ukr; ?>"><?php echo $text_wholesale; ?></a></li>
+                                    <?php } else { ?>
+                                        <li><a href="<?php echo $link_to_anabout_rus ?>"><?php echo $text_about; ?></a></li>
+                                        <li><a href="<?php echo $link_to_payment_rus; ?>"><?php echo $text_delivery; ?></a></li>
+                                        <li><a href="<?php echo $link_to_wholesale; ?>"><?php echo $text_howtotorder; ?></a></li>
+                                    <?php } ?>
+                                    <!-- module  reviews-->
+                                    <li><a href="<?php echo $link_to_rewiews; ?>"><?php echo $text_reviews; ?></a></li>
+                                    <!-- module  reviews-->
+                                    <li><a href="<?php echo $contact; ?>" class="last"><?php echo $text_contact; ?></a></li>
+                                </ul>
                             </div>
-                        </div>
-
+                        </nav>
                     </div>
+                    <!-- end mobile -->
+                    <?php if($GLOBALS["customer_location"]==='UA'){ ?>
 
-                    <!-- end tab -->
+                    <?php $small_text = ' ';?>
+                    <?php $change_class = 'col-md-6'; ?>
+                    <?php $change_class_top = 'col-xs-4'; ?>
+
                     <?php }  else { ?>
-                    <div class="col-xs-12">
-                        <form action="" method="post" class="form-horizontal" id="form_three">
-                            <fieldset>
-                                <legend><b><?php echo $text_contact; ?></b></legend>
-                                <div class="form-group required">
-                                    <label class="col-sm-2 control-label"
-                                           for="input-name2"><?php echo $entry_name; ?></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="name2" value="<?php echo $name; ?>" id="input-name2"
-                                               class="form-control"/>
+
+                    <?php $small_text = 'small-text'; ?>
+                    <?php $change_class = 'col-xs-8 col-md-12'; ?>
+                    <?php $change_class_top = 'col-xs-3 col-md-2 pull-right'; ?>
+                    <?php } ?>
+
+                    <div class="test <?php echo $change_class_top; ?> margin_large">
+                        <?php if($GLOBALS["customer_location"]==='UA'){ ?>
+                            <div class="col-md-6 padding-large" style="padding: 0 0;"><?php echo $cart; ?></div>
+                        <?php } ?>
+                        <!-- currency+language+log -->
+                        <div class="<?php echo $change_class; ?> pull-right no-padding">
+                            <div class="registration row pull-right">
+                                <ul class="registration-menu <?php echo $small_text; ?> col-sm-12 no-padding">
+                                    <?php if ($logged) { ?>
+
+                                    <li><span class="man"></span><a href="<?php echo $account; ?>"><?php echo $text_logged; ?></a></li>
+                                    <li><span class="exit"></span><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                                    <?php } else { ?>
+                                        <?php if($GLOBALS["customer_location"]==='UA'){ ?>
+                                            <li><span class="key"></span><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+                                            <li><span class="lock"></span><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+                                        <?php }  else { ?>
+                                            <li><span class="key"></span><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+                                            <li><span class="lock"></span><a href="<?php echo $link_to_wholesale ?>"><?php echo $text_register; ?></a></li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+
+                            <div class="lang-block  col-lg-8 pull-right"><?php echo $language; ?></div>
+                        </div>
+                    </div>
+                </div><!--clearfix-->
+            </div> <!--row-->
+    </div>
+    <!--end container-fluid-->
+    <div class="button_mail" data-toggle="modal" data-target=".bs-example-modal-lg">
+            <div class="button_wrap">
+                <div><?php echo $text_question; ?></div>
+            </div>
+        </div>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <?php if($GLOBALS["customer_location"]==='UA') { ?>
+                            <!-- Nav tabs -->
+                            <ul class="form_link_nav nav-tabs col-xs-12" role="tablist">
+                                <li role="presentation" class="active col-xs-6">
+                                    <a href="#rozn" aria-controls="rozn" role="tab" data-toggle="tab" class="form_link"><?=$text_comment2; ?></a>
+                                </li>
+                                <li role="presentation" class="col-xs-6">
+                                    <a href="#opt" aria-controls="opt" role="tab" data-toggle="tab" class="form_link"><?=$text_comment; ?></a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="rozn">
+                                    <div class="col-xs-12">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" id="form_one" novalidate="novalidate">
+                                            <fieldset>
+                                                <legend><b><?php echo $text_contact; ?></b></legend>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="name" value="<?php echo $name; ?>" id="input-name" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-enquiry"><?php echo $entry_enquiry; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control"><?php echo $enquiry; ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="buttons">
+                                                <div class="pull-right col-xs-12 col-sm-6">
+                                                    <input class="hidden" type="submit" value="<?php echo $button_submit; ?>" id="send_sms"/>
+                                                    <label class="btn-checkout" for="send_sms"><?php echo $text_sendsms; ?></label>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="form-group required">
-                                    <label class="col-sm-2 control-label"
-                                           for="input-email2"><?php echo $entry_email; ?></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="email2" value="<?php echo $email; ?>" id="input-email2"
-                                               class="form-control"/>
+                                <div role="tabpanel" class="tab-pane" id="opt">
+                                    <div class="col-xs-12">
+                                        <form action="" method="post" class="form-horizontal" id="form_two">
+                                            <fieldset>
+                                                <legend><b><?php echo $text_contact; ?></b></legend>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-name2"><?php echo $entry_name; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="name2" value="<?php echo $name; ?>" id="input-name2" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-email2"><?php echo $entry_email; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="email2" value="<?php echo $email; ?>" id="input-email2" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-enquiry2"><?php echo $entry_enquiry; ?></label>
+                                                    <div class="col-sm-10">
+                                                        <textarea name="enquiry2" rows="10" id="input-enquiry2" class="form-control"><?php echo $enquiry; ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="buttons">
+                                                <div class="pull-right col-xs-12 col-sm-6">
+                                                    <input class="hidden" type="submit" value="<?php echo $button_submit; ?>" id="send_sms2"/>
+                                                    <label class="btn-checkout" for="send_sms2"><?php echo $text_sendsms; ?></label>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                </div>
-                                <div class="form-group required">
-                                    <label class="col-sm-2 control-label"
-                                           for="input-enquiry2"><?php echo $entry_enquiry; ?></label>
-                                    <div class="col-sm-10">
-                                        <textarea name="enquiry2" rows="10" id="input-enquiry2"
-                                                  class="form-control"><?php echo $enquiry; ?></textarea>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="buttons">
-                                <div class="pull-right col-xs-12 col-sm-6">
-
-                                    <input class="hidden" type="submit" value="<?php echo $button_submit; ?>"
-                                           id="send_sms2"/>
-
-                                    <label class="btn-checkout" for="send_sms2"><?php echo $text_sendsms; ?></label>
-
-
                                 </div>
                             </div>
-                        </form>
+                            <!-- end tab -->
+                        <?php } else { ?>
+                            <div class="col-xs-12">
+                                <form action="" method="post" class="form-horizontal" id="form_three">
+                                    <fieldset>
+                                        <legend><b><?php echo $text_contact; ?></b></legend>
+                                        <div class="form-group required">
+                                            <label class="col-sm-2 control-label" for="input-name2"><?php echo $entry_name; ?></label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="name2" value="<?php echo $name; ?>" id="input-name2" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label class="col-sm-2 control-label" for="input-email2"><?php echo $entry_email; ?></label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="email2" value="<?php echo $email; ?>" id="input-email2" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group required">
+                                            <label class="col-sm-2 control-label" for="input-enquiry2"><?php echo $entry_enquiry; ?></label>
+                                            <div class="col-sm-10">
+                                                <textarea name="enquiry2" rows="10" id="input-enquiry2" class="form-control"><?php echo $enquiry; ?></textarea>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="buttons">
+                                        <div class="pull-right col-xs-12 col-sm-6">
+                                            <input class="hidden" type="submit" value="<?php echo $button_submit; ?>" id="send_sms2"/>
+                                            <label class="btn-checkout" for="send_sms2"><?php echo $text_sendsms; ?></label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        <?php } ?>
                     </div>
-                    <?php } ?>
-                </div>
-                <div class="modal-footer">
-                    <!--    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <div class="modal-footer"></div>
                 </div>
             </div>
         </div>
-    </div>
 
     <script>
         $(document).ready(function () {
@@ -602,11 +482,6 @@
         <div class="row">
             <div class="clearfix mobile-menu" id="<?php echo $lang; ?>">
                 <nav class="navbar" id="menu">
-                    <!-- <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_menu; ?></span>
-                      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-                    </div>
-
-                    <div class="collapse navbar-collapse navbar-ex1-collapse col-xs-12"> -->
                     <ul class="nav navbar-nav">
                         <?php if ($categories) { ?>
                         <!-- есть категории -->
@@ -653,6 +528,7 @@
             </div>
         </div>
     </div>
+
 </header>
 
  

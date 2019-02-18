@@ -492,20 +492,19 @@
                                     <li class="menu-li menu-kat_new"><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
                                     <?php } ?>
                                 <?php } ?>
-
                             <?php } ?>
-
                         <?php } ?>
+
+                        <!--to UA-->
+                        <li class="menu-li menu-kat_new"><a href="https://sofiashelest.ua/"><?php echo $text_redirect_to_ua; ?></a></li>
 
                         <?php if($GLOBALS["customer_location"]==='UA'){ ?>
                             <li class="menu-li"><a href="<?php echo $link_to_anabout ?>"><?php echo $text_about; ?></a></li>
                             <!-- about us -->
                         <?php } else { ?>
-                            <li class="menu-li"><a href="<?php echo $link_to_anabout_rus; ?>"><?php echo $text_about; ?></a></li>
+                            <li class="menu-li"><a href="<?php echo $link_to_anabout_rus; ?>" target="_blank" ><?php echo $text_about; ?></a></li>
                             <!-- about us -->
                         <?php } ?>
-
-
                         <!-- other li -->
                         <?php if($GLOBALS["customer_location"]==='UA'){ ?>
                             <li class="menu-li"><a href="<?php echo $link_to_order; ?>"><?php echo $text_howtotorder; ?></a></li>
@@ -519,10 +518,7 @@
                         <li class="menu-li"><a href="<?php echo $link_to_rewiews; ?>"><?php echo $text_reviews; ?></a>
                         </li>
                         <!-- module  reviews-->
-                        <li class="menu-li"><a href="<?php echo $contact; ?>"
-                                               class="last"><?php echo $text_contact; ?></a></li>
-
-
+                        <li class="menu-li"><a href="<?php echo $contact; ?>" class="last"><?php echo $text_contact; ?></a></li>
                     </ul>
                 </nav>
             </div>

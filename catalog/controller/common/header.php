@@ -137,6 +137,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_wholesale'] = $this->language->get('text_wholesale');
 		$data['text_reviews'] = $this->language->get('text_reviews');
 		$data['text_contact'] = $this->language->get('text_contact');
+        $data['text_redirect_to_ua'] = $this->language->get('text_redirect_to_ua');
 		//from footer
 		$data['text_information'] = $this->language->get('text_information');
 		$data['text_portfolio'] = $this->language->get('text_portfolio');
@@ -197,6 +198,8 @@ class ControllerCommonHeader extends Controller {
 
 		$categories = $this->model_catalog_category->getCategories(0);
 
+
+
 		foreach ($categories as $category) {
 			if ($category['top']) {
 				// Level 2
@@ -205,15 +208,18 @@ class ControllerCommonHeader extends Controller {
 				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
 				foreach ($children as $child) {
-					$filter_data = array(
-						'filter_category_id'  => $child['category_id'],
-						'filter_sub_category' => true
-					);
+                    if ($child['top']) {
+                        $filter_data = array(
+                            'filter_category_id'  => $child['category_id'],
+                            'filter_sub_category' => true
+                        );
 
-					$children_data[] = array(
-						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-						'href'  => $this->url->link('product/category2', 'path=' . $category['category_id'] . '_' . $child['category_id'])
-					);
+                        $children_data[] = array(
+                            'top'   => $child['top'],
+                            'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+                            'href'  => $this->url->link('product/category2', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+                        );
+                    }
 				}
 
 				// Level 1
@@ -225,6 +231,7 @@ class ControllerCommonHeader extends Controller {
 				);
 			}
 		}
+
 
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');

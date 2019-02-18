@@ -21,6 +21,7 @@ $_['text_account']      = 'Личный кабинет';
 $_['text_order']        = 'История заказа';
 $_['text_wishlist']     = 'Закладки';
 $_['text_newsletter']   = 'Рассылка';
+$_['text_redirect_to_ua']  = 'Розница, СП, Дроп';
 // $_['text_powered']      = '<a href="http://fly-studio.com.ua/ru/zakazat/sait/e-commerce.html" target="_blank">Разработка интернет-магазина <img src="/image/Fly-Studio_logo.png" width="40px"> fly-studio.com.ua </a>';
 
 $_['text_powered']      = '%s &copy; %s';

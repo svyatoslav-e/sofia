@@ -34,6 +34,8 @@ $_['text_contact']      	= 'Контакты';
 $_['text_portfolio']     = 'Портфолио';
 $_['text_license']       ='Сертификаты и лицензии';
 $_['text_information']  = 'Информация';
+$_['text_redirect_to_ua']  = 'Розница, СП, Дроп';
+
 
 
 $_['text_sendsms']  = 'Отправить';

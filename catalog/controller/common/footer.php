@@ -17,6 +17,7 @@ class ControllerCommonFooter extends Controller {
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
+        $data['text_redirect_to_ua'] = $this->language->get('text_redirect_to_ua');
 		// my
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_portfolio'] = $this->language->get('text_portfolio');
@@ -73,15 +74,17 @@ class ControllerCommonFooter extends Controller {
 				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
 				foreach ($children as $child) {
-					$filter_data = array(
-						'filter_category_id'  => $child['category_id'],
-						'filter_sub_category' => true
-					);
+                    if ($child['top']) {
+                        $filter_data = array(
+                            'filter_category_id'  => $child['category_id'],
+                            'filter_sub_category' => true
+                        );
 
-					$children_data[] = array(
-						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
-					);
+                        $children_data[] = array(
+                            'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+                            'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+                        );
+                    }
 				}
 
 				// Level 1

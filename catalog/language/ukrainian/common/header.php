@@ -37,6 +37,8 @@ $_['text_wholesale']      	= 'Оптовим клієнтам';
 $_['text_reviews']      	= 'Відгуки';
 $_['text_contact']      	= 'Контакти';
 
+$_['text_redirect_to_ua']  = 'Роздріб, СП, Дроп';
+
 $_['text_category']      = 'Каталог товарів';
 $_['text_portfolio']     = 'Портфоліо';
 $_['text_license']       ='Сертифікати і ліцензії';

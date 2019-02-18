@@ -25,21 +25,16 @@
                                             <?php } ?>
                                             <?php } ?>
                                             <?php } ?>
+
+                                              <li class="footer-li"><a href="https://sofiashelest.ua/"><?php echo $text_redirect_to_ua; ?></a></li>
                                            </ul>
                                         <?php } ?>
-<!-- 
-                     <div class="col-sm-12 powered hidden-xs hidden-sm">
-                        <div class="copyright_fly"><?php echo $powered; ?></div>
-                     </div>  -->    
       </div>
   
  <div class="col-sm-3 footer-desc">
            <div class="col-sm-12 social">
 
             <ul class="social-list">
-              <!-- <li class="tweet"><a href=""></a></li> -->
-<!--               <li class="vk"><a href="https://ok.ru/profile/569688572392"></a></li>
- -->              <!-- <li class="facebook"><a href="sofiashelest@gmail.com"></a></li> -->
               <li class="instagram"><a href="https://www.instagram.com/tm_sofia.shelest/"></a></li>
               <li class="google"><a href="https://www.facebook.com/profile.php?id=100016495144640&ref=ts&fref=ts"></a></li>
               <li class="classmates"><a href="https://vk.com/tm_sofiashelest"></a></li>
@@ -61,9 +56,7 @@
    <div class="col-xs-12 social">
 
         <ul class="col-xs-12 social-list">
-              <!-- <li class="tweet"><a href=""></a></li> -->
               <li class="vk"><a href="https://ok.ru/profile/569688572392"></a></li>
-              <!-- <li class="facebook"><a href="sofiashelest@gmail.com"></a></li> -->
               <li class="instagram"><a href="https://www.instagram.com/sofia_shelest/"></a></li>
               <li class="google"><a href="https://www.facebook.com/profile.php?id=100016495144640&fref=ts"></a></li>
               <li class="classmates"><a href="https://vk.com/id296682471"></a></li>
@@ -74,13 +67,7 @@
          <div class="col-xs-12 powered">
         <p><?php echo $powered; ?></p>
      </div>
-<!--     <div class="col-xs-12  powered">
-      <div class="copyright_fly"><?php echo $powered; ?></div>
-   </div> -->
     </div>
-
-
-    
     </div>
     </div>
 

@@ -489,7 +489,7 @@
                                 <!-- для каждой категории в массиве -->
                                 <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
                                     <?php foreach ($children as $child) { ?>
-                                    <li class="menu-li menu-kat_new"><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                                    <li class="menu-li menu-kat_new"><a href="<?php echo $child['href']; ?>" target="_blank"><?php echo $child['name']; ?></a></li>
                                     <?php } ?>
                                 <?php } ?>
                             <?php } ?>
@@ -502,7 +502,7 @@
                             <li class="menu-li"><a href="<?php echo $link_to_anabout ?>"><?php echo $text_about; ?></a></li>
                             <!-- about us -->
                         <?php } else { ?>
-                            <li class="menu-li"><a href="<?php echo $link_to_anabout_rus; ?>" target="_blank" ><?php echo $text_about; ?></a></li>
+                            <li class="menu-li"><a href="<?php echo $link_to_anabout_rus; ?>"><?php echo $text_about; ?></a></li>
                             <!-- about us -->
                         <?php } ?>
                         <!-- other li -->

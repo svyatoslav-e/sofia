@@ -26,7 +26,7 @@
                                             <?php } ?>
                                             <?php } ?>
 
-                                              <li class="footer-li"><a href="https://sofiashelest.ua/"><?php echo $text_redirect_to_ua; ?></a></li>
+                                              <li class="footer-li"><a href="https://sofiashelest.ua/" target="_blank"><?php echo $text_redirect_to_ua; ?></a></li>
                                            </ul>
                                         <?php } ?>
       </div>
